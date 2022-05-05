@@ -1,0 +1,19 @@
+function getusername(){
+	let str =document.evaluate("/html/body/form/div[4]/div[1]/div[2]/a[1]",document,null,XPathResult.FIRST_ORDERED_NODE_TYPE,null).singleNodeValue.innerText;
+    return str;
+ }
+(function(config){
+config.spa = {
+            "spa2": true
+        };
+         (function(info) {
+             info.PageView = function () {
+                 return {
+                     userData: {
+	 		 username: getusername()
+                     }
+                     
+                 }
+             }
+         })(config.userEventInfo || (config.userEventInfo = {}))
+    })(window['adrum-config'] || (window['adrum-config'] = {}));
